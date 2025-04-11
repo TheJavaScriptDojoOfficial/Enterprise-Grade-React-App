@@ -81,7 +81,7 @@ src/
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/react-enterprise-folder-structure.git
+git clone [https://github.com/your-username/react-enterprise-folder-structure.git](https://github.com/TheJavaScriptDojoOfficial/Enterprise-Grade-React-App.git)
 cd react-enterprise-folder-structure
 
 # Install dependencies
