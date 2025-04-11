@@ -4,7 +4,7 @@
 This repository showcases a **scalable, maintainable, and production-ready folder structure** for React projects, ideal for growing teams and large applications.
 
 Built with:
-- ⚛️ React 18 + TypeScript
+- ⚛️ React 19 + TypeScript
 - ⚡ Vite
 - 🌪️ TailwindCSS
 - 🎯 Redux Toolkit
@@ -142,4 +142,4 @@ Made with ❤️ by [Sameer Thite](https://github.com/TheJavaScriptDojoOfficial)
 
 ## 📄 License
 
-MIT © 2024 [Sameer Thite]
+MIT © 2025 [Sameer Thite]
