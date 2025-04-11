@@ -1,54 +1,145 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 Enterprise-Grade React Folder Structure
 
-Currently, two official plugins are available:
+This repository showcases a **scalable, maintainable, and production-ready folder structure** for React projects, ideal for growing teams and large applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built with:
+- ⚛️ React 18 + TypeScript
+- ⚡ Vite
+- 🌪️ TailwindCSS
+- 🎯 Redux Toolkit
+- 🔐 Route Protection (Private & Public Routes)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Folder Structure Overview
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── assets/               # Global styles, images, fonts
+├── components/
+│   ├── common/           # Reusable UI components (Button, Modal, etc.)
+│   └── layout/           # Header, Footer, Navigation
+├── constants/            # Route paths, config variables
+├── context/              # (Optional) React context providers
+├── features/             # Feature-based modules (auth, dashboard, etc.)
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── authSlice.ts
+│   └── dashboard/
+├── hooks/                # Custom hooks (useDebounce, useWindowSize)
+├── layouts/              # AuthLayout, MainLayout with <Outlet />
+├── lib/                  # Axios config and shared instances
+├── pages/                # Public pages like Home, NotFound
+├── routes/               # Centralized route definitions
+├── store/                # Redux store setup
+├── types/                # Global TypeScript types & interfaces
+├── utils/                # Utility functions (formatDate, etc.)
+├── App.tsx               # Root component
+├── main.tsx              # Entry point
+└── vite-env.d.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Why This Structure?
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- **Feature-Based Modules**: Easy to scale & test
+- **DRY & Maintainable**: Clean separation of concerns
+- **Onboarding-Friendly**: Intuitive layout for new devs
+- **Redux Toolkit + Async Thunks**: Enterprise-grade state management
+- **Private/Public Routes**: Auth guard logic built-in
+
+---
+
+## 🛠️ Technologies Used
+
+| Tool               | Purpose                              |
+|--------------------|--------------------------------------|
+| React + TypeScript | Component UI with type safety        |
+| Vite               | Lightning-fast build tool            |
+| TailwindCSS        | Utility-first modern styling         |
+| Redux Toolkit      | Global state management              |
+| React Router       | Declarative routing with guards      |
+| Axios              | API integration layer                |
+
+---
+
+## 🔐 Authentication Logic
+
+- ✅ `PrivateRoute`: Protects pages like `/dashboard`, redirects to `/login`
+- ✅ `PublicRoute`: Prevents logged-in users from visiting `/login` or `/signup`
+- ✅ Auth stored in Redux & persisted in `localStorage`
+- ✅ Fake API simulation for login (can be replaced with real backend)
+
+---
+
+## 🚦 Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/react-enterprise-folder-structure.git
+cd react-enterprise-folder-structure
+
+# Install dependencies
+npm install
+
+# Start the app
+npm run dev
 ```
+
+> App runs at [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🔐 Default Login Credentials (For Demo)
+
+| Email              | Password    |
+|-------------------|-------------|
+| admin@example.com | admin123    |
+
+---
+
+## 💡 Example Pages
+
+- `/login` → Public login page
+- `/dashboard` → Protected dashboard with mock data
+- `/profile` → Add-on example for nesting under layout
+- `/404` → Catch-all NotFound route
+
+---
+
+## 📂 Add a New Feature Module
+
+To add a new feature (e.g. `settings`):
+```bash
+src/features/settings/
+├── components/
+├── hooks/
+├── pages/
+├── services/
+├── settingsSlice.ts
+```
+
+Then wire it into `rootReducer.ts` and add routes in `AppRoutes.tsx`.
+
+---
+
+## 🧪 Testing Support (Optional)
+
+- You can integrate **Jest**, **React Testing Library**, or **Cypress** depending on your team’s testing strategy.
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ by [Sameer Thite](https://github.com/TheJavaScriptDojoOfficial)
+
+---
+
+## 📄 License
+
+MIT © 2024 [Sameer Thite]
